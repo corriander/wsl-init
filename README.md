@@ -7,6 +7,8 @@ Based on that idea: https://github.com/bahamas10/windows-bash-ssh-agent
 ## Install
 Download or clone repo, run the install.bat for install the scripts in your %USERPROFILE%\wsl-init dir and make a shortcut %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\wsl-init.lnk for autostart.
 
+You can add `AddKeysToAgent yes` into `~/.ssh/config` for asking a passphrase only once per a session.
+
 ## Use
 Put your linux scripts inside init folder, wsl-init.sh will auto exec them due a next boot (or run wsl-init.sh manual).
 
