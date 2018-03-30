@@ -1,3 +1,3 @@
 #!/bin/bash
-run-parts ./init
+run-parts ./init.d
 sleep infinity

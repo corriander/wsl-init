@@ -5,8 +5,5 @@ if [ ! -z $pid ]; then
 fi
 
 envfile=$HOME/.ssh/environment
-bashrc=$HOME/.bashrc
 
 ssh-agent > "$envfile"
-
-grep ". $envfile" "$bashrc" || echo ". $envfile" >> "$bashrc"
