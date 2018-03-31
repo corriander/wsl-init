@@ -36,9 +36,9 @@ or some other trigger.
 
 ### Other install methods
 
-Using `install.sh` from Git Bash isn't fully supported (`\c\...` type drive
-notation hasn't been handled) but at a glance appears to work. `doig-u`'s method
-should also still work as before:
+Using `install.sh` from Git Bash isn't fully supported; `\c\...` type drive
+notation hasn't been handled and it fails on creating a startup shortcut.
+`doig-u`'s method should also still work as before:
 
 > Download or clone repo, run the install.bat for install the scripts in your
 > %USERPROFILE%\wsl-init dir and make a shortcut
