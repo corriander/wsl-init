@@ -26,6 +26,12 @@ and you wish to install directly under the user profile:
 	cd wsl-init
 	bash install.sh ~/userprofile/wsl-init
 
+Alternatively, `bash install.sh /mnt/c/Users/bob/wsl-init` is the explicit
+form and naturally also works.
+
+`install.sh` will prompt to create a shortcut in the user profile's startup
+folder. Alternatively, `wsl-init.vbs` could be invoked by Windows task scheduler
+or some other trigger.
 
 
 ### Other install methods
@@ -39,20 +45,20 @@ should also still work as before:
 > %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start
 > Menu\Programs\Startup\wsl-init.lnk for autostart.
 
-> You can add `AddKeysToAgent yes` into `~/.ssh/config` for asking a passphrase
-> only once per a session.
-
 
 ### Uninstall
 
 * Delete `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\wsl-init.lnk`
+  or whatever orchestration method was set up.
 * Delete `wsl-init` directory and contents.
 
 
 ## Usage
 
-`wsl-init.sh` is called by `wsl-init.bat` which is called by `wsl-init.vbs`; it 
-execs the contents of `init.d` so you could start web servers, etc. in there.
+`wsl-init.sh` is called by `wsl-init.bat` which is called by `wsl-init.vbs`;
+this chain execs the contents of `init.d` via a persistent bash process so you
+could start web servers, services, and so on.
+
 
 ### `ssh-agent` setup
 
@@ -65,10 +71,10 @@ multiple bash sessions.
 
 When the `ssh-agent` is started, its details are put in `~/.ssh/environment`.
 These can be used to connect to it within a given session. Something like the
-following will attach a bash session to the ssh-agent automatically on new
-session:
+following will attach a bash session to the ssh-agent automatically on Ubuntu
+login:
 
-	echo ". ~/.ssh/environment" >> .bashrc	
+	echo ". ~/.ssh/environment" >> .profile
 
 Put this wherever makes sense, bearing in mind that `.ssh/environment` could
 potentially get stale or not exist.
